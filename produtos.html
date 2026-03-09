@@ -36,6 +36,24 @@
         <div class="card-body">
             <h5 class="card-title">Caixa de Som Portátil</h5>
             <p class="card-text">Caixa de som Bluetooth compacta com som potente, resistente à água e até 10 horas de reprodução.</p>
+            <div class="form-check">
+            <input 
+                type="checkbox" 
+                class="form-check-input item-produto" 
+                value="2.500,00"
+                id="produto1">
+            <label class="form-check-label" for="produto1">
+                Vou querer - R$ 2500,00
+            </label>
+            </div>
+            <div class="mt-2">
+            <label>Quantidade:</label>
+            <input 
+                type="number" 
+                class="form-control qtd-produto"
+                value="1"
+                min="1">
+            </div>
             <a href="#" class="btn btn-primary">COMPRAR</a>
         </div>
         </div>
@@ -47,6 +65,25 @@
         <div class="card-body">
             <h5 class="card-title">Fone de Ouvido Bluetooth</h5>
             <p class="card-text">Fone sem fio com cancelamento de ruído, bateria de longa duração e conexão rápida com smartphone.</p>
+        <div class="form-check">
+            <input 
+                type="checkbox" 
+                class="form-check-input item-produto" 
+                value="500,00"
+                id="produto2">
+            <label class="form-check-label" for="produto2">
+                Vou querer - R$ 500,00
+            </label>
+            </div>
+            <div class="mt-2">
+            <label>Quantidade:</label>
+            <input 
+                type="number" 
+                class="form-control qtd-produto"
+                value="1"
+                min="1">
+            </div>
+
             <a href="#" class="btn btn-primary">COMPRAR</a>
         </div>
         </div>
@@ -58,12 +95,36 @@
         <div class="card-body">
             <h5 class="card-title">Smartwatch Fitness</h5>
             <p class="card-text">Relógio inteligente que monitora passos, batimentos cardíacos e qualidade do sono, ideal para atividades físicas.</p>
+            <div class="form-check">
+            <input 
+                type="checkbox" 
+                class="form-check-input item-produto" 
+                value="650,00"
+                id="produto3">
+            <label class="form-check-label" for="produto3">
+                Vou querer - R$ 650,00
+            </label>
+            </div>
+            <div class="mt-2">
+            <label>Quantidade:</label>
+            <input 
+                type="number" 
+                class="form-control qtd-produto"
+                value="1"
+                min="1">
+            </div>
             <a href="#" class="btn btn-primary">COMPRAR</a>
         </div>
         </div>
     </div>
+    </div>
 
-
+    <div class="alert alert-info text-center mt-4">
+  <h4>
+    Valor Total: R$ 
+    <span id="valor-total">0,00</span>
+  </h4>
 </div>
+
 </body>
 </html>
