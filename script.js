@@ -54,5 +54,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-
 //adiona no icone do carrinho
+
+
+async function carregarDepoimentos() {
+    try {
+        const resposta = await fetch("https://jsonplaceholder.typicode.com/comments?_limit=3"); //api externa, gera simulações
+        const dados = await resposta.json(); //converte para json
+
+        const lista = document.getElementById("lista-depoimentos");
+
+        dados.forEach(depoimento => { //percorre os decpoimeitos
+            lista.innerHTML += `
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">${depoimento.name}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">${depoimento.email}</h6>
+                            <p class="card-text">${depoimento.body}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+    } catch (erro) {
+        console.error("Erro ao carregar depoimentos:", erro);
+    }
+}
+
+carregarDepoimentos();
