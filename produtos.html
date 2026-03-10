@@ -25,18 +25,15 @@
         </div>
     </div>
     <ul class="navbar-nav ms-auto align-items-center">
-
   <li class="nav-item d-flex align-items-center">
-
     <i class="bi bi-cart3 fs-4"></i>
-
-    <span id="contador-carrinho"
-          class="badge bg-danger ms-2">
+    <a href="carrinho.html" class="btn btn-primary">
+        <span id="contador-carrinho"
+          class="badge  ms-2">
       0
     </span>
-
+</a>
   </li>
-
 </ul>
     </nav>
 
@@ -58,19 +55,19 @@
                 value="2500.00"
                 id="produto1">
             <label class="form-check-label" for="produto1">
-                Vou querer - R$ 2500,00
+                Vou querer - R$ 2.500,00
             </label>
             </div>
             <div class="mt-2">
             <label>Quantidade:</label>
-            <input 
+            <input id = "produto_1"
                 type="number" 
                 class="form-control qtd-produto"
                 value="1"
                 min="1">
             </div>
-            <a href="#" class="btn btn-primary">COMPRAR</a>
-            <button type="button"  class="btn btn-outline-primary mt-2 adicionar-carrinho">
+            <a href="carrinho.html" class="btn btn-primary">COMPRAR</a>
+            <button type="button"  onclick="adicionarCarrinho('Caixa de Som Portátil', 2500.00, 'Caixa de som Bluetooth compacta com som potente', 1)" class="btn btn-outline-primary mt-2">
                 <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
             </button>
         </div>
@@ -95,16 +92,16 @@
             </div>
             <div class="mt-2">
             <label>Quantidade:</label>
-            <input 
+            <input id="produto_2"
                 type="number" 
                 class="form-control qtd-produto"
                 value="1"
                 min="1">
             </div>
 
-            <a href="#" class="btn btn-primary">COMPRAR</a>
+            <a href="carrinho.html" class="btn btn-primary">COMPRAR</a>
 
-            <button type="button" class="btn btn-outline-primary mt-2 adicionar-carrinho">
+            <button type="button" onclick="adicionarCarrinho('Fone de Ouvido Bluetooth', 500.00, 'Fone sem fio com cancelamento de ruído', 2)" class="btn btn-outline-primary mt-2">
                 <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
             </button>
         </div>
@@ -129,14 +126,14 @@
             </div>
             <div class="mt-2">
             <label>Quantidade:</label>
-            <input 
+            <input id="produto_3" 
                 type="number" 
                 class="form-control qtd-produto"
                 value="1"
-                min="1">
+                min="1" >
             </div>
-            <a href="#" class="btn btn-primary">COMPRAR</a>
-            <button type="button"  class="btn btn-outline-primary mt-2 adicionar-carrinho">
+            <a href="carrinho.html" class="btn btn-primary">COMPRAR</a>
+            <button type="button"  onclick="adicionarCarrinho('Smartwatch Fitness', 650.00, 'Relógio inteligente que monitora passos', 3 )" class="btn btn-outline-primary mt-2">
              <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
             </button>
         </div>
