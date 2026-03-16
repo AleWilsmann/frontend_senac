@@ -1,4 +1,3 @@
-// js/ui.js
 
 export function renderizarDepoimentos(depoimentos, elementoLista) {
     elementoLista.innerHTML = "";

@@ -75,9 +75,16 @@
                 data-id="1">
                 <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
             </button>
-            <!-- <button type="button"  onclick="adicionarCarrinho('Caixa de Som Portátil', 2500.00, 'Caixa de som Bluetooth compacta com som potente', 1)" class="btn btn-outline-primary mt-2">
-                <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
-            </button> -->
+            <button type="button" 
+                class="btn btn-outline-info mt-2 ver-detalhes"
+                data-bs-toggle="modal"
+                data-bs-target="#modalDetalheProduto"
+                data-nome="Caixa de Som Portátil"
+                data-preco="2500.00"
+                data-descricao="Caixa de som Bluetooth compacta com som potente, resistente à água e até 10 horas de reprodução."
+                data-id="1">
+                <i class="bi bi-search"></i> Ver Detalhes
+            </button>
         </div>
         </div>
     </div>
@@ -117,10 +124,16 @@
                 data-id="2">
                 <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
             </button>
-
-            <!-- <button type="button" onclick="adicionarCarrinho('Fone de Ouvido Bluetooth', 500.00, 'Fone sem fio com cancelamento de ruído', 2)" class="btn btn-outline-primary mt-2">
-                <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
-            </button> -->
+            <button type="button" 
+                class="btn btn-outline-info mt-2 ver-detalhes"
+                data-bs-toggle="modal"
+                data-bs-target="#modalDetalheProduto"
+                data-nome="Fone de Ouvido Bluetooth"
+                data-preco="500.00"
+                data-descricao="Fone sem fio com cancelamento de ruído."
+                data-id="2">
+                <i class="bi bi-search"></i> Ver Detalhes
+            </button>
         </div>
         </div>
     </div>
@@ -158,10 +171,16 @@
                 data-id="3">
                 <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
             </button>
-            
-            <!-- <button type="button"  onclick="adicionarCarrinho('Smartwatch Fitness', 650.00, 'Relógio inteligente que monitora passos', 3 )" class="btn btn-outline-primary mt-2">
-             <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
-            </button> -->
+            <button type="button" 
+                class="btn btn-outline-info mt-2 ver-detalhes"
+                data-bs-toggle="modal"
+                data-bs-target="#modalDetalheProduto"
+                data-nome="Smartwatch Fitness"
+                data-preco="650.00"
+                data-descricao="Relógio inteligente que monitora passos"
+                data-id="3">
+                <i class="bi bi-search"></i> Ver Detalhes
+            </button>
         </div>
         </div>
     </div>
@@ -173,6 +192,26 @@
     <span id="valor-total">0,00</span>
   </h4>
 </div>
-<script type="module" src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <!-- Modal de Detalhes do Produto -->
+    <div class="modal fade" id="modalDetalheProduto" tabindex="-1" aria-labelledby="modalDetalheProdutoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalDetalheProdutoLabel">Detalhes do Produto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <!-- Conteúdo será injetado via JavaScript -->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary adicionar-ao-carrinho-modal">
+            <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
