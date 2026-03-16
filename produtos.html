@@ -67,9 +67,17 @@
                 min="1">
             </div>
             <a href="carrinho.html" class="btn btn-primary">COMPRAR</a>
-            <button type="button"  onclick="adicionarCarrinho('Caixa de Som Portátil', 2500.00, 'Caixa de som Bluetooth compacta com som potente', 1)" class="btn btn-outline-primary mt-2">
+            <button type="button" 
+                class="btn btn-outline-primary mt-2 adicionar-ao-carrinho"
+                data-nome="Caixa de Som Portátil"
+                data-preco="2500.00"
+                data-descricao="Caixa de som Bluetooth compacta com som potente"
+                data-id="1">
                 <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
             </button>
+            <!-- <button type="button"  onclick="adicionarCarrinho('Caixa de Som Portátil', 2500.00, 'Caixa de som Bluetooth compacta com som potente', 1)" class="btn btn-outline-primary mt-2">
+                <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
+            </button> -->
         </div>
         </div>
     </div>
@@ -101,9 +109,18 @@
 
             <a href="carrinho.html" class="btn btn-primary">COMPRAR</a>
 
-            <button type="button" onclick="adicionarCarrinho('Fone de Ouvido Bluetooth', 500.00, 'Fone sem fio com cancelamento de ruído', 2)" class="btn btn-outline-primary mt-2">
+            <button type="button" 
+                class="btn btn-outline-primary mt-2 adicionar-ao-carrinho"
+                data-nome="Fone de Ouvido Bluetooth"
+                data-preco="500.00"
+                data-descricao="Fone sem fio com cancelamento de ruído"
+                data-id="2">
                 <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
             </button>
+
+            <!-- <button type="button" onclick="adicionarCarrinho('Fone de Ouvido Bluetooth', 500.00, 'Fone sem fio com cancelamento de ruído', 2)" class="btn btn-outline-primary mt-2">
+                <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
+            </button> -->
         </div>
         </div>
     </div>
@@ -133,9 +150,18 @@
                 min="1" >
             </div>
             <a href="carrinho.html" class="btn btn-primary">COMPRAR</a>
-            <button type="button"  onclick="adicionarCarrinho('Smartwatch Fitness', 650.00, 'Relógio inteligente que monitora passos', 3 )" class="btn btn-outline-primary mt-2">
-             <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
+            <button type="button" 
+                class="btn btn-outline-primary mt-2 adicionar-ao-carrinho"
+                data-nome="Smartwatch Fitness"
+                data-preco="650.00"
+                data-descricao="Relógio inteligente que monitora passos"
+                data-id="3">
+                <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
             </button>
+            
+            <!-- <button type="button"  onclick="adicionarCarrinho('Smartwatch Fitness', 650.00, 'Relógio inteligente que monitora passos', 3 )" class="btn btn-outline-primary mt-2">
+             <i class="bi bi-cart-plus"></i> Adicionar ao carrinho
+            </button> -->
         </div>
         </div>
     </div>
@@ -147,6 +173,6 @@
     <span id="valor-total">0,00</span>
   </h4>
 </div>
-<script src="script.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
