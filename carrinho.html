@@ -99,9 +99,9 @@ function carregarCarrinho(){
                 <strong>${produto.nome}</strong><br>
                 <small>${produto.descricao}</small>
             </td>
-            <td>R$ ${produto.preco}</td>
+            <td>${produto.preco.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</td>
             <td>${produto.quantidade}</td>
-            <td>R$ ${produto.preco * produto.quantidade}</td>
+            <td>${(produto.preco * produto.quantidade).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</td>
             <td>
                 <button class="btn btn-danger btn-sm" onclick="removerItem(${index})">
                     Remover
@@ -112,7 +112,7 @@ function carregarCarrinho(){
         total += produto.preco * produto.quantidade;
     });
 
-    totalSpan.innerText = "R$ " + total.toFixed(2);
+    totalSpan.innerText = total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
     
 }
 
@@ -120,11 +120,19 @@ function removerItem(index){
 
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
+    if (index < 0 || index >= carrinho.length) return;
+
+    const nomeProduto = carrinho[index].nome;
+    
+     if (!confirm(`Tem certeza que deseja remover "${nomeProduto}" do carrinho?`)) {
+        return;
+    }
     carrinho.splice(index,1);
 
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
     carregarCarrinho();
+    atualizarContadorCarrinho();
 }
 
 carregarCarrinho();

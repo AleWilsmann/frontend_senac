@@ -95,17 +95,27 @@ carregarDepoimentos();
 
 function adicionarCarrinho(nome, preco, descricao, id){
    
-    const quantidade = document.getElementById("produto_"+id);
-    const valorquantidade = quantidade.value;
+    const inputQuantidade = document.getElementById("produto_"+id);
+    let qtdNova = Number(inputQuantidade.value);
+
+    if (qtdNova < 1) return;
+
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    carrinho.push({
-        nome: nome,
-        preco: preco,
-        descricao: descricao,
-        quantidade: Number(valorquantidade)
-    });
+
+    const produtoExistente = carrinho.find(item => item.nome === nome);
+    if (produtoExistente) {
+        produtoExistente.quantidade += qtdNova;
+    } else {
+        carrinho.push({
+            nome: nome,
+            preco: preco,
+            descricao: descricao,
+            quantidade: qtdNova
+        });
+    }
 
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    inputQuantidade.value = 1;
     atualizarContadorCarrinho();
 
 }
