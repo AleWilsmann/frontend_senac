@@ -133,3 +133,79 @@ function atualizarContadorCarrinho() {
     document.getElementById("contador-carrinho").textContent = totalItens;
 }
 atualizarContadorCarrinho();
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const formContato = document.getElementById('form-contato');
+    const areaAlertas = document.getElementById('area-alertas');
+
+    if (!formContato) return; // evita erro
+
+    formContato.addEventListener('submit', async function (e) {
+        e.preventDefault(); // impede recarregar a página
+
+        // Captura os valores
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mensagem = document.getElementById('mensagem').value.trim();
+
+        // Validação
+        if (!nome || !email || !mensagem) {
+            mostrarAlerta('Preencha todos os campos!', 'danger');
+            return;
+        }
+
+        // Agrupa  e converte para JSON
+        const dados = {
+            nome: nome,
+            email: email,
+            mensagem: mensagem,
+            data: new Date().toISOString()
+        };
+
+        const dadosJSON = JSON.stringify(dados);
+
+        try {
+            const resposta = await fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: dadosJSON
+            });
+
+            
+            if (resposta.status === 201) {
+                mostrarAlerta('✅ Mensagem enviada com sucesso! Obrigado.', 'success');
+                formContato.reset(); 
+            } else {
+                throw new Error('Erro ao enviar');
+            }
+
+        } catch (erro) {
+            console.error(erro);
+            mostrarAlerta('❌ Erro ao enviar mensagem. Tente novamente.', 'danger');
+        }
+    });
+
+    
+    function mostrarAlerta(texto, tipo) {
+        
+        areaAlertas.innerHTML = '';
+
+        const alerta = document.createElement('div');
+        alerta.className = `alert alert-${tipo} alert-dismissible fade show`;
+        alerta.innerHTML = `
+            ${texto}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+
+        areaAlertas.appendChild(alerta);
+
+        // Remove automaticamente após 5 segundos
+        setTimeout(() => {
+            if (alerta) alerta.remove();
+        }, 5000);
+    }
+});
