@@ -137,6 +137,60 @@ function removerItem(index){
 
 carregarCarrinho();
 </script>
+
+<!-- Modal de Finalização de Compra -->
+<div class="modal fade" id="modalCheckout" tabindex="-1" aria-labelledby="modalCheckoutLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button id="btn-finalizar" class="btn btn-success">
+            Finalizar compra
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <form id="form-checkout">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label for="cep" class="form-label">CEP</label>
+              <input type="text" class="form-control" id="cep" placeholder="00000-000" maxlength="9" required>
+            </div>
+            <div class="col-md-8">
+              <label for="rua" class="form-label">Rua / Logradouro</label>
+              <input type="text" class="form-control" id="rua" readonly>
+            </div>
+            <div class="col-md-6">
+              <label for="bairro" class="form-label">Bairro</label>
+              <input type="text" class="form-control" id="bairro" readonly>
+            </div>
+            <div class="col-md-4">
+              <label for="cidade" class="form-label">Cidade</label>
+              <input type="text" class="form-control" id="cidade" readonly>
+            </div>
+            <div class="col-md-2">
+              <label for="estado" class="form-label">UF</label>
+              <input type="text" class="form-control" id="estado" maxlength="2" readonly>
+            </div>
+            <!-- Pode adicionar mais campos: nome, email, número, complemento, etc. -->
+          </div>
+
+          <div class="mt-4">
+            <button type="submit" class="btn btn-success w-100">Confirmar Pedido</button>
+          </div>
+        </form>
+
+        <div id="area-alertas-checkout" class="mt-3"></div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <script type="module" src="js/main.js"></script>
 </body>
 </html>

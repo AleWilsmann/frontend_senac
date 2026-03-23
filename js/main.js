@@ -73,6 +73,67 @@ document.addEventListener('DOMContentLoaded', async () => {
     atualizarContadorCarrinho();
     calcularTotal(); 
 
+
+    // Abrir modal de checkout
+        const btnFinalizar = document.getElementById('btn-finalizar');
+
+        if (btnFinalizar) {
+            btnFinalizar.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modalElement = document.getElementById('modalCheckout');
+                if (modalElement) {
+                    const meuModal = new bootstrap.Modal(modalElement);
+                    meuModal.show();
+                } else {
+                    console.error("Modal #modalCheckout não encontrado!");
+                    alert("Erro: Modal de checkout não carregou. Verifique o HTML.");
+                }
+            });
+        } else {
+            console.error("Botão #btn-finalizar não encontrado!");
+        }
+
+
+
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      
+      if (!response.ok) throw new Error('Erro na requisição');
+
+      const dados = await response.json();
+
+      if (dados.erro) {
+        throw new Error('CEP não encontrado');
+      }
+
+      // Preenche os campos
+      document.getElementById('rua').value    = dados.logradouro || '';
+      document.getElementById('bairro').value = dados.bairro || '';
+      document.getElementById('cidade').value = dados.localidade || '';
+      document.getElementById('estado').value = dados.uf || '';
+
+      mostrarAlerta(
+        document.getElementById('area-alertas-checkout'),
+        'Endereço encontrado com sucesso!',
+        'success'
+      );
+
+    } catch (err) {
+      mostrarAlerta(
+        document.getElementById('area-alertas-checkout'),
+        `CEP inválido ou não encontrado. (${err.message})`,
+        'danger'
+      );
+
+      // Limpa os campos em caso de erro
+      document.getElementById('rua').value    = '';
+      document.getElementById('bairro').value = '';
+      document.getElementById('cidade').value = '';
+      document.getElementById('estado').value = '';
+    }
+  });
+
+
     // Depoimentos (index.html)
     const listaDepo = document.getElementById("lista-depoimentos");
     if (listaDepo) {
@@ -178,4 +239,3 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         });
     }
-});
