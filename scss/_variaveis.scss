@@ -1,0 +1,108 @@
+// ==========================================
+// CORES - TEMA PADRÃO (Light)
+// ==========================================
+$cor-primaria: #007bff;
+$cor-secundaria: #6c757d;
+$cor-sucesso: #28a745;
+$cor-perigo: #dc3545;
+$cor-aviso: #ffc107;
+$cor-fundo: #f8f9fa;
+$cor-texto: #212529;
+$cor-link: #007bff;
+$cor-link-hover: darken($cor-link, 10%);
+
+// ==========================================
+// CORES - TEMA DARK
+// ==========================================
+$dark-cor-primaria: #1a73e8;
+$dark-cor-secundaria: #496989;
+$dark-cor-sucesso: #34a853;
+$dark-cor-perigo: #ea4335;
+$dark-cor-aviso: #fbbc04;
+$dark-cor-fundo: #202124;
+$dark-cor-texto: #e8eaed;
+$dark-cor-link: #8ab4f8;
+$dark-cor-link-hover: lighten($dark-cor-link, 10%);
+$dark-cor-card: #303134;
+$dark-cor-sombra: rgba(0, 0, 0, 0.5);
+
+// ==========================================
+// CORES - TEMA OCEAN (Novo Tema 1)
+// ==========================================
+$ocean-cor-primaria: #0077b6;
+$ocean-cor-secundaria: #00b4d8;
+$ocean-cor-sucesso: #06d6a0;
+$ocean-cor-perigo: #ef476f;
+$ocean-cor-aviso: #ffd166;
+$ocean-cor-fundo: #caf0f8;
+$ocean-cor-texto: #023e8a;
+$ocean-cor-link: #0077b6;
+$ocean-cor-link-hover: darken($ocean-cor-link, 15%);
+$ocean-cor-card: #ffffff;
+$ocean-cor-sombra: rgba(0, 119, 182, 0.2);
+
+// ==========================================
+// CORES - TEMA FOREST (Novo Tema 2)
+// ==========================================
+$forest-cor-primaria: #2d6a4f;
+$forest-cor-secundaria: #40916c;
+$forest-cor-sucesso: #52b788;
+$forest-cor-perigo: #d62828;
+$forest-cor-aviso: #f4a261;
+$forest-cor-fundo: #d8f3dc;
+$forest-cor-texto: #1b4332;
+$forest-cor-link: #2d6a4f;
+$forest-cor-link-hover: darken($forest-cor-link, 10%);
+$forest-cor-card: #ffffff;
+$forest-cor-sombra: rgba(45, 106, 79, 0.2);
+
+// ==========================================
+// TIPOGRAFIA
+// ==========================================
+$fonte-principal: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$fonte-titulo: 'Georgia', serif;
+
+// Font sizes
+$fonte-tamanho-base: 16px;
+$fonte-tamanho-titulo: 24px;
+$fonte-tamanho-subtitulo: 18px;
+$fonte-p: 14px;
+$fonte-espacamento: 1.5;
+
+// Font styles
+$fonte-style-normal: normal;
+$fonte-style-italic: italic;
+
+// Font weights
+$fonte-weight-light: 300;
+$fonte-weight-regular: 400;
+$fonte-weight-medium: 500;
+$fonte-weight-bold: 700;
+
+// Font colors (variáveis de cor para tipografia)
+$cor-titulo: #212529;
+$cor-subtitulo: #495057;
+$cor-texto-paragrafo: #6c757d;
+$cor-texto-links: #007bff;
+$cor-texto-destaque: #007bff;
+
+// ==========================================
+// LAYOUT
+// ==========================================
+$altura-carousel: 500px;
+$altura-produto: 220px;
+$padding-carousel: 20px;
+$raio-card: 8px;
+$espacamento-base: 1rem;
+
+// Breakpoints para responsividade
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Container widths
+$container-max-sm: 540px;
+$container-max-md: 720px;
+$container-max-lg: 960px;
+$container-max-xl: 1140px;

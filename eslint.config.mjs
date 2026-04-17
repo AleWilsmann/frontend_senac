@@ -9,7 +9,10 @@ export default [
   {
     files: ["**/*.{js,mjs,cjs}"],
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        bootstrap: "readonly"
+      },
       ecmaVersion: 2020,
       sourceType: "module"
     },

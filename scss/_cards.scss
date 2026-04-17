@@ -1,0 +1,95 @@
+// ==========================================
+// CARDS - ESTILOS RESPONSIVOS
+// ==========================================
+@import 'variaveis';
+
+.card {
+  background-color: white;
+  border-radius: $raio-card;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: $espacamento-base;
+  margin-bottom: $espacamento-base;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: $espacamento-base / 2;
+    margin-bottom: $espacamento-base / 2;
+  }
+  
+  &-imagem {
+    width: 100%;
+    height: $altura-produto;
+    object-fit: cover;
+    border-radius: $raio-card;
+    
+    @media (max-width: $breakpoint-sm) {
+      height: 180px;
+    }
+  }
+  
+  &-titulo {
+    font-size: $fonte-tamanho-subtitulo;
+    font-style: $fonte-style-normal;
+    font-weight: $fonte-weight-bold;
+    color: $cor-titulo;
+    margin: $espacamento-base 0;
+  }
+  
+  &-texto {
+    font-size: $fonte-p;
+    font-style: $fonte-style-normal;
+    font-weight: $fonte-weight-regular;
+    color: $cor-texto-paragrafo;
+    margin-bottom: $espacamento-base;
+  }
+  
+  &-preco {
+    font-size: $fonte-tamanho-subtitulo;
+    font-style: $fonte-style-normal;
+    font-weight: $fonte-weight-bold;
+    color: $cor-sucesso;
+  }
+  
+  &-botao {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: $cor-primaria;
+    color: white;
+    font-style: $fonte-style-normal;
+    font-weight: $fonte-weight-medium;
+    text-align: center;
+    border: none;
+    border-radius: $raio-card;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: darken($cor-primaria, 10%);
+    }
+  }
+}
+
+// Grid de cards responsivo
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $espacamento-base;
+  
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}

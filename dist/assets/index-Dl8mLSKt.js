@@ -101,10 +101,18 @@ function l() {
   });
 }
 var u = e(() => {
-  window.atualizarContadorCarrinho = l;
-});
+    window.atualizarContadorCarrinho = l;
+  }),
+  d = e(() => {}),
+  f = e(() => {}),
+  p = e(() => {}),
+  m = e(() => {}),
+  h = e(() => {}),
+  g = t(() => {
+    (d(), f(), p(), m(), h());
+  });
 t(() => {
-  (o(), u());
+  (o(), u(), g());
   function e(e, t, n, r, i = null) {
     let a = Number(i);
     if (i === null) {
@@ -147,30 +155,52 @@ t(() => {
         e.textContent = r;
       }));
   }
+  function i(e) {
+    (document.body.classList.remove(`tema-dark`, `tema-ocean`, `tema-forest`),
+      e && document.body.classList.add(e),
+      localStorage.setItem(`tema-selecionado`, e));
+  }
+  function a() {
+    let e = document.getElementById(`seletor-tema`);
+    if ((console.log(`Seletor tema encontrado:`, e), !e)) {
+      console.log(`Seletor de tema não encontrado nesta página`);
+      return;
+    }
+    let t = localStorage.getItem(`tema-selecionado`) || ``;
+    (console.log(`Tema salvo:`, t),
+      (e.value = t),
+      i(t),
+      e.addEventListener(`change`, (e) => {
+        (console.log(`Tema selecionado:`, e.target.value), i(e.target.value));
+      }));
+  }
   document.addEventListener(`DOMContentLoaded`, async () => {
-    (l(), t());
+    (l(), t(), a());
     let i = document.getElementById(`lista-depoimentos`);
-    if (i)
+    if ((console.log(`Elemento lista-depoimentos encontrado:`, i), i))
       try {
-        s(await n(), i);
+        console.log(`Carregando depoimentos...`);
+        let e = await n();
+        (console.log(`Depoimentos recebidos:`, e), s(e, i));
       } catch (e) {
-        console.error(`Erro ao carregar depoimentos:`, e);
+        (console.error(`Erro ao carregar depoimentos:`, e),
+          (i.innerHTML = `<div class="alert alert-warning">Não foi possível carregar os depoimentos.</div>`));
       }
-    let a = document.getElementById(`form-contato`),
-      o = document.getElementById(`area-alertas`);
-    (a &&
-      a.addEventListener(`submit`, async (e) => {
+    let o = document.getElementById(`form-contato`),
+      u = document.getElementById(`area-alertas`);
+    (o &&
+      o.addEventListener(`submit`, async (e) => {
         e.preventDefault();
         let t = document.getElementById(`nome`)?.value.trim(),
           n = document.getElementById(`email`)?.value.trim(),
           i = document.getElementById(`mensagem`)?.value.trim();
         if (!t || !n || !i) {
-          c(o, `Preencha todos os campos!`, `danger`);
+          c(u, `Preencha todos os campos!`, `danger`);
           return;
         }
         (await r({ nome: t, email: n, body: i })).success
-          ? (c(o, `✅ Mensagem enviada com sucesso!`, `success`), a.reset())
-          : c(o, `❌ Erro ao enviar. Tente novamente.`, `danger`);
+          ? (c(u, `✅ Mensagem enviada com sucesso!`, `success`), o.reset())
+          : c(u, `❌ Erro ao enviar. Tente novamente.`, `danger`);
       }),
       document.querySelectorAll(`.adicionar-ao-carrinho`).forEach((t) => {
         t.addEventListener(`click`, () => {
@@ -181,16 +211,16 @@ t(() => {
           e(n, r, i, a);
         });
       }));
-    let u = document.getElementById(`modalDetalheProduto`);
-    u &&
-      u.addEventListener(`show.bs.modal`, function (t) {
+    let d = document.getElementById(`modalDetalheProduto`);
+    d &&
+      d.addEventListener(`show.bs.modal`, function (t) {
         let n = t.relatedTarget,
           r = n.getAttribute(`data-nome`),
           i = Number(n.getAttribute(`data-preco`)),
           a = n.getAttribute(`data-descricao`),
           o = n.getAttribute(`data-id`);
-        ((u.querySelector(`.modal-title`).textContent = r),
-          (u.querySelector(`.modal-body`).innerHTML = `
+        ((d.querySelector(`.modal-title`).textContent = r),
+          (d.querySelector(`.modal-body`).innerHTML = `
                 <div class="text-center mb-3">
                     <img src="http://lorempixel.com.br/400/300" class="img-fluid rounded" alt="${r}">
                 </div>
@@ -205,16 +235,16 @@ t(() => {
                            id="qtd-modal-${o}" value="1" min="1">
                 </div>
             `));
-        let s = u.querySelector(`.adicionar-ao-carrinho-modal`);
+        let s = d.querySelector(`.adicionar-ao-carrinho-modal`);
         (s.replaceWith(s.cloneNode(!0)),
-          u
+          d
             .querySelector(`.adicionar-ao-carrinho-modal`)
             .addEventListener(`click`, () => {
               let t = document.getElementById(`qtd-modal-${o}`),
                 n = Number(t?.value || 1);
               (n < 1 && (n = 1),
                 e(r, i, a, o, n),
-                bootstrap.Modal.getInstance(u).hide(),
+                bootstrap.Modal.getInstance(d).hide(),
                 c(
                   document.body,
                   `✅ ${n} × ${r} adicionado(s) ao carrinho!`,

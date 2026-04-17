@@ -1,0 +1,362 @@
+// ==========================================
+// IMPORTS
+// ==========================================
+@import 'variaveis';
+@import 'navbar';
+@import 'cards';
+@import 'carousel';
+@import 'contato';
+
+// ==========================================
+// RESET E BASE
+// ==========================================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $fonte-principal;
+  font-size: $fonte-tamanho-base;
+  line-height: $fonte-espacamento;
+  color: $cor-texto;
+  background-color: $cor-fundo;
+}
+
+// ==========================================
+// TIPOGRAFIA COM VARIÁVEIS
+// ==========================================
+h1, h2, h3, h4, h5, h6 {
+  font-family: $fonte-titulo;
+  font-style: $fonte-style-normal;
+  font-weight: $fonte-weight-bold;
+  color: $cor-titulo;
+  margin-bottom: $espacamento-base;
+}
+
+h1 {
+  font-size: $fonte-tamanho-titulo * 1.5;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $fonte-tamanho-titulo * 1.2;
+  }
+}
+
+h2 {
+  font-size: $fonte-tamanho-titulo;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $fonte-tamanho-subtitulo * 1.3;
+  }
+}
+
+h3 {
+  font-size: $fonte-tamanho-subtitulo;
+  font-weight: $fonte-weight-medium;
+}
+
+p {
+  font-size: $fonte-p;
+  font-style: $fonte-style-normal;
+  font-weight: $fonte-weight-regular;
+  color: $cor-texto-paragrafo;
+  margin-bottom: $espacamento-base;
+}
+
+a {
+  font-style: $fonte-style-normal;
+  font-weight: $fonte-weight-regular;
+  color: $cor-link;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: $cor-link-hover;
+    font-weight: $fonte-weight-medium;
+  }
+}
+
+.destaque {
+  color: $cor-texto-destaque;
+  font-weight: $fonte-weight-medium;
+}
+
+// ==========================================
+// LAYOUT RESPONSIVO
+// ==========================================
+.container {
+  width: 100%;
+  max-width: $container-max-xl;
+  margin: 0 auto;
+  padding: 0 $espacamento-base;
+  
+  @media (max-width: $breakpoint-sm) {
+    max-width: $container-max-sm;
+    padding: 0 ($espacamento-base / 2);
+  }
+  
+  @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+    max-width: $container-max-md;
+  }
+  
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    max-width: $container-max-lg;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 (-$espacamento-base / 2);
+}
+
+.col {
+  flex: 1;
+  padding: 0 ($espacamento-base / 2);
+  margin-bottom: $espacamento-base;
+}
+
+// Grid responsivo
+.col-12 { width: 100%; }
+.col-6 { width: 50%; }
+.col-4 { width: 33.333%; }
+.col-3 { width: 25%; }
+
+@media (max-width: $breakpoint-md) {
+  .col-6, .col-4, .col-3 {
+    width: 100%;
+  }
+}
+
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+  .col-4 { width: 50%; }
+  .col-3 { width: 50%; }
+}
+
+// ==========================================
+// TEMAS DE CORES
+// ==========================================
+
+// --- Tema Dark ---
+.tema-dark {
+  background-color: $dark-cor-fundo;
+  color: $dark-cor-texto;
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: $dark-cor-texto;
+  }
+  
+  p {
+    color: lighten($dark-cor-texto, 20%);
+  }
+  
+  a {
+    color: $dark-cor-link;
+    
+    &:hover {
+      color: $dark-cor-link-hover;
+    }
+  }
+  
+  .card {
+    background-color: $dark-cor-card;
+    color: $dark-cor-texto;
+    box-shadow: $dark-cor-sombra;
+  }
+  
+  .navbar {
+    background-color: darken($dark-cor-fundo, 5%);
+    color: $dark-cor-texto;
+  }
+  
+  .destaque {
+    color: $dark-cor-link;
+  }
+}
+
+// --- Tema Ocean ---
+.tema-ocean {
+  background-color: $ocean-cor-fundo;
+  color: $ocean-cor-texto;
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: darken($ocean-cor-texto, 10%);
+  }
+  
+  p {
+    color: $ocean-cor-texto;
+  }
+  
+  a {
+    color: $ocean-cor-link;
+    
+    &:hover {
+      color: $ocean-cor-link-hover;
+    }
+  }
+  
+  .card {
+    background-color: $ocean-cor-card;
+    color: $ocean-cor-texto;
+    box-shadow: $ocean-cor-sombra;
+    border: 2px solid $ocean-cor-primaria;
+  }
+  
+  .navbar {
+    background-color: $ocean-cor-primaria;
+    color: white;
+    
+    a {
+      color: white;
+      
+      &:hover {
+        color: $ocean-cor-aviso;
+      }
+    }
+  }
+  
+  .destaque {
+    color: $ocean-cor-secundaria;
+    font-weight: $fonte-weight-bold;
+  }
+  
+  .btn-primary {
+    background-color: $ocean-cor-primaria;
+    border-color: $ocean-cor-primaria;
+    
+    &:hover {
+      background-color: darken($ocean-cor-primaria, 10%);
+    }
+  }
+}
+
+// --- Tema Forest ---
+.tema-forest {
+  background-color: $forest-cor-fundo;
+  color: $forest-cor-texto;
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: $forest-cor-texto;
+  }
+  
+  p {
+    color: darken($forest-cor-texto, 15%);
+  }
+  
+  a {
+    color: $forest-cor-link;
+    
+    &:hover {
+      color: $forest-cor-link-hover;
+    }
+  }
+  
+  .card {
+    background-color: $forest-cor-card;
+    color: $forest-cor-texto;
+    box-shadow: $forest-cor-sombra;
+    border-left: 4px solid $forest-cor-primaria;
+  }
+  
+  .navbar {
+    background-color: $forest-cor-primaria;
+    color: white;
+    
+    a {
+      color: white;
+      
+      &:hover {
+        color: $forest-cor-aviso;
+      }
+    }
+  }
+  
+  .destaque {
+    color: $forest-cor-sucesso;
+    font-weight: $fonte-weight-bold;
+  }
+  
+  .btn-primary {
+    background-color: $forest-cor-secundaria;
+    border-color: $forest-cor-secundaria;
+    
+    &:hover {
+      background-color: $forest-cor-primaria;
+    }
+  }
+}
+
+// ==========================================
+// BOTÕES
+// ==========================================
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: $fonte-p;
+  font-style: $fonte-style-normal;
+  font-weight: $fonte-weight-medium;
+  text-align: center;
+  border-radius: $raio-card;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  
+  &-primary {
+    background-color: $cor-primaria;
+    color: white;
+    
+    &:hover {
+      background-color: darken($cor-primaria, 10%);
+    }
+  }
+  
+  &-secondary {
+    background-color: $cor-secundaria;
+    color: white;
+    
+    &:hover {
+      background-color: darken($cor-secundaria, 10%);
+    }
+  }
+  
+  &-success {
+    background-color: $cor-sucesso;
+    color: white;
+    
+    &:hover {
+      background-color: darken($cor-sucesso, 10%);
+    }
+  }
+}
+
+// ==========================================
+// UTILITÁRIOS RESPONSIVOS
+// ==========================================
+.hide-mobile {
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.hide-desktop {
+  @media (min-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+@media (max-width: $breakpoint-md) {
+  .text-center-mobile { text-align: center; }
+}
+
+.mt-1 { margin-top: $espacamento-base; }
+.mt-2 { margin-top: $espacamento-base * 2; }
+.mb-1 { margin-bottom: $espacamento-base; }
+.mb-2 { margin-bottom: $espacamento-base * 2; }
+
+.p-1 { padding: $espacamento-base; }
+.p-2 { padding: $espacamento-base * 2; }
