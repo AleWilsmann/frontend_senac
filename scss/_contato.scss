@@ -1,7 +1,9 @@
 // ==========================================
 // CONTATO - ESTILOS RESPONSIVOS
 // ==========================================
-@import 'variaveis';
+@use 'sass:math';
+@use 'sass:color';
+@use 'variaveis' as *;
 
 .contato {
   padding: $espacamento-base * 2;
@@ -32,14 +34,14 @@
     gap: $espacamento-base;
     
     @media (max-width: $breakpoint-sm) {
-      padding: 0 $espacamento-base / 2;
+      padding: 0 math.div($espacamento-base, 2);
     }
   }
   
   &-grupo {
     display: flex;
     flex-direction: column;
-    gap: $espacamento-base / 2;
+    gap: math.div($espacamento-base, 2);
   }
   
   &-label {
@@ -95,7 +97,7 @@
     align-self: flex-start;
     
     &:hover {
-      background-color: darken($cor-primaria, 10%);
+      background-color: color.adjust($cor-primaria, $lightness: -10%);
     }
     
     @media (max-width: $breakpoint-sm) {
@@ -118,7 +120,7 @@
     font-style: $fonte-style-normal;
     font-weight: $fonte-weight-regular;
     color: $cor-texto-paragrafo;
-    margin-bottom: $espacamento-base / 2;
+    margin-bottom: math.div($espacamento-base, 2);
     
     strong {
       font-weight: $fonte-weight-medium;

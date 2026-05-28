@@ -1,15 +1,6 @@
 import { atualizarContadorCarrinho } from './ui';
-
-export interface CarrinhoItem {
-  nome: string;
-  preco: number;
-  descricao: string;
-  quantidade: number;
-}
-
-function getCarrinho(): CarrinhoItem[] {
-  return JSON.parse(localStorage.getItem('carrinho') || '[]') as CarrinhoItem[];
-}
+import { loadCarrinho, saveCarrinho } from './storage';
+import type { CarrinhoItem } from './types';
 
 function formatarMoeda(valor: number): string {
   return valor.toLocaleString('pt-BR', {
@@ -42,7 +33,7 @@ function criarLinhaCarrinho(produto: CarrinhoItem): HTMLTableRowElement {
   botaoRemover.type = 'button';
   botaoRemover.className = 'btn btn-danger btn-sm';
   botaoRemover.textContent = 'Remover';
-  botaoRemover.addEventListener('click', () => removerItem(produto.nome));
+  botaoRemover.addEventListener('click', () => removerItemPorId(produto.id));
   colunaAcao.appendChild(botaoRemover);
 
   linha.append(
@@ -61,7 +52,7 @@ function carregarCarrinho(): void {
   const totalSpan = document.getElementById('total-carrinho');
   if (!lista || !totalSpan) return;
 
-  const carrinho = getCarrinho();
+  const carrinho = loadCarrinho();
   lista.innerHTML = '';
 
   const total = carrinho.reduce((acc, produto) => {
@@ -72,15 +63,19 @@ function carregarCarrinho(): void {
   totalSpan.textContent = formatarMoeda(total);
 }
 
-function removerItem(nome: string): void {
-  const carrinho = getCarrinho();
+function removerItemPorId(id: string): void {
+  const carrinho = loadCarrinho();
+  const produto = carrinho.find((item) => item.id === id);
+  if (!produto) return;
 
-  if (!confirm(`Tem certeza que deseja remover "${nome}" do carrinho?`)) {
+  if (
+    !confirm(`Tem certeza que deseja remover "${produto.nome}" do carrinho?`)
+  ) {
     return;
   }
 
-  const atualizado = carrinho.filter((item) => item.nome !== nome);
-  localStorage.setItem('carrinho', JSON.stringify(atualizado));
+  const atualizado = carrinho.filter((item) => item.id !== id);
+  saveCarrinho(atualizado);
 
   carregarCarrinho();
   atualizarContadorCarrinho();

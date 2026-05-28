@@ -1,7 +1,9 @@
 // ==========================================
 // CARDS - ESTILOS RESPONSIVOS
 // ==========================================
-@import 'variaveis';
+@use 'sass:math';
+@use 'sass:color';
+@use 'variaveis' as *;
 
 .card {
   background-color: white;
@@ -17,10 +19,10 @@
   }
   
   @media (max-width: $breakpoint-sm) {
-    padding: $espacamento-base / 2;
-    margin-bottom: $espacamento-base / 2;
+    padding: math.div($espacamento-base, 2);
+    margin-bottom: math.div($espacamento-base, 2);
   }
-  
+
   &-imagem {
     width: 100%;
     height: $altura-produto;
@@ -70,7 +72,7 @@
     transition: background-color 0.3s ease;
     
     &:hover {
-      background-color: darken($cor-primaria, 10%);
+      background-color: color.adjust($cor-primaria, $lightness: -10%);
     }
   }
 }

@@ -1,7 +1,8 @@
 // ==========================================
 // CAROUSEL - ESTILOS RESPONSIVOS
 // ==========================================
-@import 'variaveis';
+@use 'sass:math';
+@use 'variaveis' as *;
 
 .carousel {
   width: 100%;
@@ -45,10 +46,10 @@
     border-radius: $raio-card;
     
     @media (max-width: $breakpoint-sm) {
-      bottom: $espacamento-base / 2;
-      left: $espacamento-base / 2;
-      right: $espacamento-base / 2;
-      padding: $espacamento-base / 2;
+      bottom: math.div($espacamento-base, 2);
+      left: math.div($espacamento-base, 2);
+      right: math.div($espacamento-base, 2);
+      padding: math.div($espacamento-base, 2);
     }
   }
   
@@ -57,11 +58,7 @@
     font-style: $fonte-style-normal;
     font-weight: $fonte-weight-bold;
     color: white;
-    margin-bottom: $espacamento-base / 2;
-    
-    @media (max-width: $breakpoint-sm) {
-      font-size: $fonte-tamanho-subtitulo;
-    }
+    margin-bottom: math.div($espacamento-base, 2);
   }
   
   &-descricao {
@@ -108,10 +105,10 @@
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: $espacamento-base / 2;
+    gap: math.div($espacamento-base, 2);
     
     @media (max-width: $breakpoint-sm) {
-      bottom: $espacamento-base / 2;
+      bottom: math.div($espacamento-base, 2);
     }
   }
   

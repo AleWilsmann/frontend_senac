@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // ==========================================
 // CORES - TEMA PADRÃO (Light)
 // ==========================================
@@ -9,7 +11,7 @@ $cor-aviso: #ffc107;
 $cor-fundo: #f8f9fa;
 $cor-texto: #212529;
 $cor-link: #007bff;
-$cor-link-hover: darken($cor-link, 10%);
+$cor-link-hover: color.adjust($cor-link, $lightness: -10%);
 
 // ==========================================
 // CORES - TEMA DARK
@@ -22,7 +24,7 @@ $dark-cor-aviso: #fbbc04;
 $dark-cor-fundo: #202124;
 $dark-cor-texto: #e8eaed;
 $dark-cor-link: #8ab4f8;
-$dark-cor-link-hover: lighten($dark-cor-link, 10%);
+$dark-cor-link-hover: color.adjust($dark-cor-link, $lightness: 10%);
 $dark-cor-card: #303134;
 $dark-cor-sombra: rgba(0, 0, 0, 0.5);
 
@@ -37,7 +39,7 @@ $ocean-cor-aviso: #ffd166;
 $ocean-cor-fundo: #caf0f8;
 $ocean-cor-texto: #023e8a;
 $ocean-cor-link: #0b1012;
-$ocean-cor-link-hover: darken($ocean-cor-link, 15%);
+$ocean-cor-link-hover: color.adjust($ocean-cor-link, $lightness: -15%);
 $ocean-cor-card: #ffffff;
 $ocean-cor-sombra: rgba(0, 119, 182, 0.2);
 
@@ -52,7 +54,7 @@ $forest-cor-aviso: #f4a261;
 $forest-cor-fundo: #d8f3dc;
 $forest-cor-texto: #1b4332;
 $forest-cor-link: #2d6a4f;
-$forest-cor-link-hover: darken($forest-cor-link, 10%);
+$forest-cor-link-hover: color.adjust($forest-cor-link, $lightness: -10%);
 $forest-cor-card: #ffffff;
 $forest-cor-sombra: rgba(45, 106, 79, 0.2);
 

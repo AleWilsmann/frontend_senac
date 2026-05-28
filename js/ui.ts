@@ -1,4 +1,5 @@
 import type { Depoimento } from './api';
+import { loadCarrinho } from './storage';
 
 export type AlertaTipo = 'success' | 'danger' | 'warning' | 'info';
 
@@ -64,16 +65,9 @@ export function mostrarAlerta(
 }
 
 export function atualizarContadorCarrinho(): void {
-  const carrinho = JSON.parse(
-    localStorage.getItem('carrinho') || '[]'
-  ) as Array<{
-    quantidade: number | string;
-  }>;
+  const carrinho = loadCarrinho();
 
-  const totalItens = carrinho.reduce(
-    (acc, prod) => acc + Number(prod.quantidade),
-    0
-  );
+  const totalItens = carrinho.reduce((acc, prod) => acc + prod.quantidade, 0);
 
   document.querySelectorAll<HTMLElement>('.contador-carrinho').forEach((el) => {
     el.textContent = `${totalItens}`;
